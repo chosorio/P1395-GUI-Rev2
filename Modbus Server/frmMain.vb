@@ -239,8 +239,32 @@
             LabelHVBasePlateTemp.Text = "Temp = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_HVLAMBDA).custom_data(5)
 
 
+            If (board_index = MODBUS_COMMANDS.MODBUS_WR_COOLING) Then
+                ButtonSF6Close.Visible = True
+                ButtonSF6Open.Visible = True
+                LabelCoolingCabinetTemp.Visible = True
+                LabelCoolingCirculatorFlow.Visible = True
+                LabelCoolingCoolantTemp.Visible = True
+                LabelCoolingLinacFlow.Visible = True
+                LabelCoolingMagnetronFlow.Visible = True
+                LabelCoolingSF6Pressure.Visible = True
+            Else
+                ButtonSF6Close.Visible = False
+                ButtonSF6Open.Visible = False
+                LabelCoolingCabinetTemp.Visible = False
+                LabelCoolingCirculatorFlow.Visible = False
+                LabelCoolingCoolantTemp.Visible = False
+                LabelCoolingLinacFlow.Visible = False
+                LabelCoolingMagnetronFlow.Visible = False
+                LabelCoolingSF6Pressure.Visible = False
+            End If
 
-
+            LabelCoolingCabinetTemp.Text = "Cabinet Temperature = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(10) / 1000
+            LabelCoolingCirculatorFlow.Text = "Circulator Flow = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(3) / 100
+            LabelCoolingCoolantTemp.Text = "Coolant Temperature = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(8) / 1000
+            LabelCoolingLinacFlow.Text = "Linac Flow = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(0) / 100
+            LabelCoolingMagnetronFlow.Text = "Magnetron Flow = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(1) / 1000
+            LabelCoolingSF6Pressure.Text = "SF6 Pressure = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(9) / 100
 
 
 
@@ -362,4 +386,18 @@
 
         End Try
     End Sub
+
+    Private Sub ButtonSF6Open_Click(sender As System.Object, e As EventArgs) Handles ButtonSF6Open.Click
+        'Need to define the command index, and also modify the CAN board to respond to it. 
+        'ServerSettings.command_index = ETHERNET_CMD_COOLING_SF6_OPEN
+        'ServerSettings.command_data = 0
+        'command_count = command_count + 1
+        'ServerSettings.command_ready = command_count
+    End Sub
+
+    Private Sub ButtonSF6Close_Click(sender As System.Object, e As EventArgs) Handles ButtonSF6Close.Click
+
+    End Sub
+
+
 End Class

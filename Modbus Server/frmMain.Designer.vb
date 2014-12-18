@@ -25,6 +25,14 @@ Partial Class frmMain
         Me.components = New System.ComponentModel.Container()
         Me.TimerUpdate = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LabelCoolingCabinetTemp = New System.Windows.Forms.Label()
+        Me.LabelCoolingSF6Pressure = New System.Windows.Forms.Label()
+        Me.LabelCoolingCoolantTemp = New System.Windows.Forms.Label()
+        Me.LabelCoolingCirculatorFlow = New System.Windows.Forms.Label()
+        Me.LabelCoolingLinacFlow = New System.Windows.Forms.Label()
+        Me.LabelCoolingMagnetronFlow = New System.Windows.Forms.Label()
+        Me.ButtonSF6Close = New System.Windows.Forms.Button()
+        Me.ButtonSF6Open = New System.Windows.Forms.Button()
         Me.LabelHtrMagMagVolSetPointRback = New System.Windows.Forms.Label()
         Me.ButtonResetAllFaults = New System.Windows.Forms.Button()
         Me.ButtonHtrMagOn = New System.Windows.Forms.Button()
@@ -32,21 +40,12 @@ Partial Class frmMain
         Me.ButtonLambdaOn = New System.Windows.Forms.Button()
         Me.ButtonHtrMagOff = New System.Windows.Forms.Button()
         Me.ButtonLambdaoff = New System.Windows.Forms.Button()
-        Me.LabelHVBasePlateTemp = New System.Windows.Forms.Label()
         Me.LabelHtrMagHtrVolSetPointRback = New System.Windows.Forms.Label()
-        Me.LabelHVImon = New System.Windows.Forms.Label()
         Me.LabelHtrMagMagVmon = New System.Windows.Forms.Label()
-        Me.LabelHVVmon = New System.Windows.Forms.Label()
-        Me.LabelHVEOCNotReached = New System.Windows.Forms.Label()
         Me.LabelHtrMagHtrSetPointRback = New System.Windows.Forms.Label()
-        Me.LabelHVSetLow = New System.Windows.Forms.Label()
         Me.LabelHtrMagMagImon = New System.Windows.Forms.Label()
-        Me.LabelHVSetHigh = New System.Windows.Forms.Label()
-        Me.ButtonSetLambdaLow = New System.Windows.Forms.Button()
         Me.LabelHtrMagHtrVmon = New System.Windows.Forms.Label()
-        Me.TextBoxLambdaLow = New System.Windows.Forms.TextBox()
         Me.TextBoxHtrCurrent = New System.Windows.Forms.TextBox()
-        Me.ButtonSetLamdbaHigh = New System.Windows.Forms.Button()
         Me.LabelHtrMagHtrImon = New System.Windows.Forms.Label()
         Me.TextBoxLambdaHigh = New System.Windows.Forms.TextBox()
         Me.ButtonHtrMagSetHtr = New System.Windows.Forms.Button()
@@ -128,6 +127,15 @@ Partial Class frmMain
         Me.CheckBoxStatusBit2 = New System.Windows.Forms.CheckBox()
         Me.CheckBoxStatusBit1 = New System.Windows.Forms.CheckBox()
         Me.CheckBoxStatusBit0 = New System.Windows.Forms.CheckBox()
+        Me.ButtonSetLambdaLow = New System.Windows.Forms.Button()
+        Me.ButtonSetLamdbaHigh = New System.Windows.Forms.Button()
+        Me.TextBoxLambdaLow = New System.Windows.Forms.TextBox()
+        Me.LabelHVBasePlateTemp = New System.Windows.Forms.Label()
+        Me.LabelHVImon = New System.Windows.Forms.Label()
+        Me.LabelHVVmon = New System.Windows.Forms.Label()
+        Me.LabelHVEOCNotReached = New System.Windows.Forms.Label()
+        Me.LabelHVSetLow = New System.Windows.Forms.Label()
+        Me.LabelHVSetHigh = New System.Windows.Forms.Label()
         Me.cboIndex = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
@@ -139,6 +147,14 @@ Partial Class frmMain
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.LabelCoolingCabinetTemp)
+        Me.GroupBox1.Controls.Add(Me.LabelCoolingSF6Pressure)
+        Me.GroupBox1.Controls.Add(Me.LabelCoolingCoolantTemp)
+        Me.GroupBox1.Controls.Add(Me.LabelCoolingCirculatorFlow)
+        Me.GroupBox1.Controls.Add(Me.LabelCoolingLinacFlow)
+        Me.GroupBox1.Controls.Add(Me.LabelCoolingMagnetronFlow)
+        Me.GroupBox1.Controls.Add(Me.ButtonSF6Close)
+        Me.GroupBox1.Controls.Add(Me.ButtonSF6Open)
         Me.GroupBox1.Controls.Add(Me.LabelHtrMagMagVolSetPointRback)
         Me.GroupBox1.Controls.Add(Me.ButtonResetAllFaults)
         Me.GroupBox1.Controls.Add(Me.ButtonHtrMagOn)
@@ -249,6 +265,87 @@ Partial Class frmMain
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Status Data"
         '
+        'LabelCoolingCabinetTemp
+        '
+        Me.LabelCoolingCabinetTemp.AutoSize = True
+        Me.LabelCoolingCabinetTemp.Cursor = System.Windows.Forms.Cursors.No
+        Me.LabelCoolingCabinetTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCoolingCabinetTemp.Location = New System.Drawing.Point(430, 489)
+        Me.LabelCoolingCabinetTemp.Name = "LabelCoolingCabinetTemp"
+        Me.LabelCoolingCabinetTemp.Size = New System.Drawing.Size(170, 16)
+        Me.LabelCoolingCabinetTemp.TabIndex = 229
+        Me.LabelCoolingCabinetTemp.Text = "LabelCoolingCabinetTemp"
+        '
+        'LabelCoolingSF6Pressure
+        '
+        Me.LabelCoolingSF6Pressure.AutoSize = True
+        Me.LabelCoolingSF6Pressure.Cursor = System.Windows.Forms.Cursors.No
+        Me.LabelCoolingSF6Pressure.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCoolingSF6Pressure.Location = New System.Drawing.Point(430, 473)
+        Me.LabelCoolingSF6Pressure.Name = "LabelCoolingSF6Pressure"
+        Me.LabelCoolingSF6Pressure.Size = New System.Drawing.Size(166, 16)
+        Me.LabelCoolingSF6Pressure.TabIndex = 228
+        Me.LabelCoolingSF6Pressure.Text = "LabelCoolingSF6Pressure"
+        '
+        'LabelCoolingCoolantTemp
+        '
+        Me.LabelCoolingCoolantTemp.AutoSize = True
+        Me.LabelCoolingCoolantTemp.Cursor = System.Windows.Forms.Cursors.No
+        Me.LabelCoolingCoolantTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCoolingCoolantTemp.Location = New System.Drawing.Point(430, 457)
+        Me.LabelCoolingCoolantTemp.Name = "LabelCoolingCoolantTemp"
+        Me.LabelCoolingCoolantTemp.Size = New System.Drawing.Size(170, 16)
+        Me.LabelCoolingCoolantTemp.TabIndex = 227
+        Me.LabelCoolingCoolantTemp.Text = "LabelCoolingCoolantTemp"
+        '
+        'LabelCoolingCirculatorFlow
+        '
+        Me.LabelCoolingCirculatorFlow.AutoSize = True
+        Me.LabelCoolingCirculatorFlow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCoolingCirculatorFlow.Location = New System.Drawing.Point(430, 441)
+        Me.LabelCoolingCirculatorFlow.Name = "LabelCoolingCirculatorFlow"
+        Me.LabelCoolingCirculatorFlow.Size = New System.Drawing.Size(172, 16)
+        Me.LabelCoolingCirculatorFlow.TabIndex = 226
+        Me.LabelCoolingCirculatorFlow.Text = "LabelCoolingCirculatorFlow"
+        '
+        'LabelCoolingLinacFlow
+        '
+        Me.LabelCoolingLinacFlow.AutoSize = True
+        Me.LabelCoolingLinacFlow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCoolingLinacFlow.Location = New System.Drawing.Point(430, 425)
+        Me.LabelCoolingLinacFlow.Name = "LabelCoolingLinacFlow"
+        Me.LabelCoolingLinacFlow.Size = New System.Drawing.Size(148, 16)
+        Me.LabelCoolingLinacFlow.TabIndex = 225
+        Me.LabelCoolingLinacFlow.Text = "LabelCoolingLinacFlow"
+        '
+        'LabelCoolingMagnetronFlow
+        '
+        Me.LabelCoolingMagnetronFlow.AutoSize = True
+        Me.LabelCoolingMagnetronFlow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCoolingMagnetronFlow.Location = New System.Drawing.Point(430, 409)
+        Me.LabelCoolingMagnetronFlow.Name = "LabelCoolingMagnetronFlow"
+        Me.LabelCoolingMagnetronFlow.Size = New System.Drawing.Size(180, 16)
+        Me.LabelCoolingMagnetronFlow.TabIndex = 224
+        Me.LabelCoolingMagnetronFlow.Text = "LabelCoolingMagnetronFlow"
+        '
+        'ButtonSF6Close
+        '
+        Me.ButtonSF6Close.Location = New System.Drawing.Point(539, 375)
+        Me.ButtonSF6Close.Name = "ButtonSF6Close"
+        Me.ButtonSF6Close.Size = New System.Drawing.Size(120, 23)
+        Me.ButtonSF6Close.TabIndex = 223
+        Me.ButtonSF6Close.Text = "SF6 Solenoid Close"
+        Me.ButtonSF6Close.UseVisualStyleBackColor = True
+        '
+        'ButtonSF6Open
+        '
+        Me.ButtonSF6Open.Location = New System.Drawing.Point(539, 348)
+        Me.ButtonSF6Open.Name = "ButtonSF6Open"
+        Me.ButtonSF6Open.Size = New System.Drawing.Size(120, 23)
+        Me.ButtonSF6Open.TabIndex = 222
+        Me.ButtonSF6Open.Text = "SF6 Solenoid Open"
+        Me.ButtonSF6Open.UseVisualStyleBackColor = True
+        '
         'LabelHtrMagMagVolSetPointRback
         '
         Me.LabelHtrMagMagVolSetPointRback.AutoSize = True
@@ -316,17 +413,6 @@ Partial Class frmMain
         Me.ButtonLambdaoff.UseVisualStyleBackColor = True
         Me.ButtonLambdaoff.Visible = False
         '
-        'LabelHVBasePlateTemp
-        '
-        Me.LabelHVBasePlateTemp.AutoSize = True
-        Me.LabelHVBasePlateTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelHVBasePlateTemp.Location = New System.Drawing.Point(430, 489)
-        Me.LabelHVBasePlateTemp.Name = "LabelHVBasePlateTemp"
-        Me.LabelHVBasePlateTemp.Size = New System.Drawing.Size(111, 16)
-        Me.LabelHVBasePlateTemp.TabIndex = 202
-        Me.LabelHVBasePlateTemp.Text = "LabelHVLambda"
-        Me.LabelHVBasePlateTemp.Visible = False
-        '
         'LabelHtrMagHtrVolSetPointRback
         '
         Me.LabelHtrMagHtrVolSetPointRback.AutoSize = True
@@ -336,17 +422,6 @@ Partial Class frmMain
         Me.LabelHtrMagHtrVolSetPointRback.Size = New System.Drawing.Size(86, 16)
         Me.LabelHtrMagHtrVolSetPointRback.TabIndex = 219
         Me.LabelHtrMagHtrVolSetPointRback.Text = "LabelHtrMag"
-        '
-        'LabelHVImon
-        '
-        Me.LabelHVImon.AutoSize = True
-        Me.LabelHVImon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelHVImon.Location = New System.Drawing.Point(430, 473)
-        Me.LabelHVImon.Name = "LabelHVImon"
-        Me.LabelHVImon.Size = New System.Drawing.Size(111, 16)
-        Me.LabelHVImon.TabIndex = 201
-        Me.LabelHVImon.Text = "LabelHVLambda"
-        Me.LabelHVImon.Visible = False
         '
         'LabelHtrMagMagVmon
         '
@@ -358,28 +433,6 @@ Partial Class frmMain
         Me.LabelHtrMagMagVmon.TabIndex = 215
         Me.LabelHtrMagMagVmon.Text = "LabelHtrMag"
         '
-        'LabelHVVmon
-        '
-        Me.LabelHVVmon.AutoSize = True
-        Me.LabelHVVmon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelHVVmon.Location = New System.Drawing.Point(430, 457)
-        Me.LabelHVVmon.Name = "LabelHVVmon"
-        Me.LabelHVVmon.Size = New System.Drawing.Size(111, 16)
-        Me.LabelHVVmon.TabIndex = 200
-        Me.LabelHVVmon.Text = "LabelHVLambda"
-        Me.LabelHVVmon.Visible = False
-        '
-        'LabelHVEOCNotReached
-        '
-        Me.LabelHVEOCNotReached.AutoSize = True
-        Me.LabelHVEOCNotReached.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelHVEOCNotReached.Location = New System.Drawing.Point(430, 441)
-        Me.LabelHVEOCNotReached.Name = "LabelHVEOCNotReached"
-        Me.LabelHVEOCNotReached.Size = New System.Drawing.Size(111, 16)
-        Me.LabelHVEOCNotReached.TabIndex = 199
-        Me.LabelHVEOCNotReached.Text = "LabelHVLambda"
-        Me.LabelHVEOCNotReached.Visible = False
-        '
         'LabelHtrMagHtrSetPointRback
         '
         Me.LabelHtrMagHtrSetPointRback.AutoSize = True
@@ -389,17 +442,6 @@ Partial Class frmMain
         Me.LabelHtrMagHtrSetPointRback.Size = New System.Drawing.Size(86, 16)
         Me.LabelHtrMagHtrSetPointRback.TabIndex = 218
         Me.LabelHtrMagHtrSetPointRback.Text = "LabelHtrMag"
-        '
-        'LabelHVSetLow
-        '
-        Me.LabelHVSetLow.AutoSize = True
-        Me.LabelHVSetLow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelHVSetLow.Location = New System.Drawing.Point(430, 425)
-        Me.LabelHVSetLow.Name = "LabelHVSetLow"
-        Me.LabelHVSetLow.Size = New System.Drawing.Size(111, 16)
-        Me.LabelHVSetLow.TabIndex = 198
-        Me.LabelHVSetLow.Text = "LabelHVLambda"
-        Me.LabelHVSetLow.Visible = False
         '
         'LabelHtrMagMagImon
         '
@@ -411,27 +453,6 @@ Partial Class frmMain
         Me.LabelHtrMagMagImon.TabIndex = 214
         Me.LabelHtrMagMagImon.Text = "LabelHtrMag"
         '
-        'LabelHVSetHigh
-        '
-        Me.LabelHVSetHigh.AutoSize = True
-        Me.LabelHVSetHigh.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelHVSetHigh.Location = New System.Drawing.Point(430, 409)
-        Me.LabelHVSetHigh.Name = "LabelHVSetHigh"
-        Me.LabelHVSetHigh.Size = New System.Drawing.Size(111, 16)
-        Me.LabelHVSetHigh.TabIndex = 197
-        Me.LabelHVSetHigh.Text = "LabelHVLambda"
-        Me.LabelHVSetHigh.Visible = False
-        '
-        'ButtonSetLambdaLow
-        '
-        Me.ButtonSetLambdaLow.Location = New System.Drawing.Point(539, 374)
-        Me.ButtonSetLambdaLow.Name = "ButtonSetLambdaLow"
-        Me.ButtonSetLambdaLow.Size = New System.Drawing.Size(100, 23)
-        Me.ButtonSetLambdaLow.TabIndex = 196
-        Me.ButtonSetLambdaLow.Text = "Set Lambda Low"
-        Me.ButtonSetLambdaLow.UseVisualStyleBackColor = True
-        Me.ButtonSetLambdaLow.Visible = False
-        '
         'LabelHtrMagHtrVmon
         '
         Me.LabelHtrMagHtrVmon.AutoSize = True
@@ -442,15 +463,6 @@ Partial Class frmMain
         Me.LabelHtrMagHtrVmon.TabIndex = 213
         Me.LabelHtrMagHtrVmon.Text = "LabelHtrMag"
         '
-        'TextBoxLambdaLow
-        '
-        Me.TextBoxLambdaLow.Location = New System.Drawing.Point(433, 377)
-        Me.TextBoxLambdaLow.MaxLength = 5
-        Me.TextBoxLambdaLow.Name = "TextBoxLambdaLow"
-        Me.TextBoxLambdaLow.Size = New System.Drawing.Size(100, 20)
-        Me.TextBoxLambdaLow.TabIndex = 195
-        Me.TextBoxLambdaLow.Visible = False
-        '
         'TextBoxHtrCurrent
         '
         Me.TextBoxHtrCurrent.Location = New System.Drawing.Point(433, 351)
@@ -458,16 +470,6 @@ Partial Class frmMain
         Me.TextBoxHtrCurrent.Name = "TextBoxHtrCurrent"
         Me.TextBoxHtrCurrent.Size = New System.Drawing.Size(100, 20)
         Me.TextBoxHtrCurrent.TabIndex = 206
-        '
-        'ButtonSetLamdbaHigh
-        '
-        Me.ButtonSetLamdbaHigh.Location = New System.Drawing.Point(539, 350)
-        Me.ButtonSetLamdbaHigh.Name = "ButtonSetLamdbaHigh"
-        Me.ButtonSetLamdbaHigh.Size = New System.Drawing.Size(100, 23)
-        Me.ButtonSetLamdbaHigh.TabIndex = 194
-        Me.ButtonSetLamdbaHigh.Text = "Set Lambda High"
-        Me.ButtonSetLamdbaHigh.UseVisualStyleBackColor = True
-        Me.ButtonSetLamdbaHigh.Visible = False
         '
         'LabelHtrMagHtrImon
         '
@@ -1336,6 +1338,101 @@ Partial Class frmMain
         Me.CheckBoxStatusBit0.Text = "Status Bit 0"
         Me.CheckBoxStatusBit0.UseVisualStyleBackColor = True
         '
+        'ButtonSetLambdaLow
+        '
+        Me.ButtonSetLambdaLow.Location = New System.Drawing.Point(539, 374)
+        Me.ButtonSetLambdaLow.Name = "ButtonSetLambdaLow"
+        Me.ButtonSetLambdaLow.Size = New System.Drawing.Size(100, 23)
+        Me.ButtonSetLambdaLow.TabIndex = 196
+        Me.ButtonSetLambdaLow.Text = "Set Lambda Low"
+        Me.ButtonSetLambdaLow.UseVisualStyleBackColor = True
+        Me.ButtonSetLambdaLow.Visible = False
+        '
+        'ButtonSetLamdbaHigh
+        '
+        Me.ButtonSetLamdbaHigh.Location = New System.Drawing.Point(539, 350)
+        Me.ButtonSetLamdbaHigh.Name = "ButtonSetLamdbaHigh"
+        Me.ButtonSetLamdbaHigh.Size = New System.Drawing.Size(100, 23)
+        Me.ButtonSetLamdbaHigh.TabIndex = 194
+        Me.ButtonSetLamdbaHigh.Text = "Set Lambda High"
+        Me.ButtonSetLamdbaHigh.UseVisualStyleBackColor = True
+        Me.ButtonSetLamdbaHigh.Visible = False
+        '
+        'TextBoxLambdaLow
+        '
+        Me.TextBoxLambdaLow.Location = New System.Drawing.Point(433, 377)
+        Me.TextBoxLambdaLow.MaxLength = 5
+        Me.TextBoxLambdaLow.Name = "TextBoxLambdaLow"
+        Me.TextBoxLambdaLow.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxLambdaLow.TabIndex = 195
+        Me.TextBoxLambdaLow.Visible = False
+        '
+        'LabelHVBasePlateTemp
+        '
+        Me.LabelHVBasePlateTemp.AutoSize = True
+        Me.LabelHVBasePlateTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelHVBasePlateTemp.Location = New System.Drawing.Point(430, 489)
+        Me.LabelHVBasePlateTemp.Name = "LabelHVBasePlateTemp"
+        Me.LabelHVBasePlateTemp.Size = New System.Drawing.Size(111, 16)
+        Me.LabelHVBasePlateTemp.TabIndex = 202
+        Me.LabelHVBasePlateTemp.Text = "LabelHVLambda"
+        Me.LabelHVBasePlateTemp.Visible = False
+        '
+        'LabelHVImon
+        '
+        Me.LabelHVImon.AutoSize = True
+        Me.LabelHVImon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelHVImon.Location = New System.Drawing.Point(430, 473)
+        Me.LabelHVImon.Name = "LabelHVImon"
+        Me.LabelHVImon.Size = New System.Drawing.Size(111, 16)
+        Me.LabelHVImon.TabIndex = 201
+        Me.LabelHVImon.Text = "LabelHVLambda"
+        Me.LabelHVImon.Visible = False
+        '
+        'LabelHVVmon
+        '
+        Me.LabelHVVmon.AutoSize = True
+        Me.LabelHVVmon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelHVVmon.Location = New System.Drawing.Point(430, 457)
+        Me.LabelHVVmon.Name = "LabelHVVmon"
+        Me.LabelHVVmon.Size = New System.Drawing.Size(111, 16)
+        Me.LabelHVVmon.TabIndex = 200
+        Me.LabelHVVmon.Text = "LabelHVLambda"
+        Me.LabelHVVmon.Visible = False
+        '
+        'LabelHVEOCNotReached
+        '
+        Me.LabelHVEOCNotReached.AutoSize = True
+        Me.LabelHVEOCNotReached.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelHVEOCNotReached.Location = New System.Drawing.Point(430, 441)
+        Me.LabelHVEOCNotReached.Name = "LabelHVEOCNotReached"
+        Me.LabelHVEOCNotReached.Size = New System.Drawing.Size(111, 16)
+        Me.LabelHVEOCNotReached.TabIndex = 199
+        Me.LabelHVEOCNotReached.Text = "LabelHVLambda"
+        Me.LabelHVEOCNotReached.Visible = False
+        '
+        'LabelHVSetLow
+        '
+        Me.LabelHVSetLow.AutoSize = True
+        Me.LabelHVSetLow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelHVSetLow.Location = New System.Drawing.Point(430, 425)
+        Me.LabelHVSetLow.Name = "LabelHVSetLow"
+        Me.LabelHVSetLow.Size = New System.Drawing.Size(111, 16)
+        Me.LabelHVSetLow.TabIndex = 198
+        Me.LabelHVSetLow.Text = "LabelHVLambda"
+        Me.LabelHVSetLow.Visible = False
+        '
+        'LabelHVSetHigh
+        '
+        Me.LabelHVSetHigh.AutoSize = True
+        Me.LabelHVSetHigh.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelHVSetHigh.Location = New System.Drawing.Point(430, 409)
+        Me.LabelHVSetHigh.Name = "LabelHVSetHigh"
+        Me.LabelHVSetHigh.Size = New System.Drawing.Size(111, 16)
+        Me.LabelHVSetHigh.TabIndex = 197
+        Me.LabelHVSetHigh.Text = "LabelHVLambda"
+        Me.LabelHVSetHigh.Visible = False
+        '
         'cboIndex
         '
         Me.cboIndex.FormattingEnabled = True
@@ -1478,4 +1575,12 @@ Partial Class frmMain
     Friend WithEvents LabelHtrMagMagSetPointRback As System.Windows.Forms.Label
     Friend WithEvents LabelHtrMagHtrVolSetPointRback As System.Windows.Forms.Label
     Friend WithEvents LabelHtrMagHtrSetPointRback As System.Windows.Forms.Label
+    Friend WithEvents ButtonSF6Open As System.Windows.Forms.Button
+    Friend WithEvents ButtonSF6Close As System.Windows.Forms.Button
+    Friend WithEvents LabelCoolingMagnetronFlow As System.Windows.Forms.Label
+    Friend WithEvents LabelCoolingLinacFlow As System.Windows.Forms.Label
+    Friend WithEvents LabelCoolingCoolantTemp As System.Windows.Forms.Label
+    Friend WithEvents LabelCoolingCirculatorFlow As System.Windows.Forms.Label
+    Friend WithEvents LabelCoolingSF6Pressure As System.Windows.Forms.Label
+    Friend WithEvents LabelCoolingCabinetTemp As System.Windows.Forms.Label
 End Class
