@@ -11,6 +11,10 @@
     Public Const ETHERNET_CMD_HV_LAMBDA_ON As UInt16 = 6
     Public Const ETHERNET_CMD_HV_LAMBDA_OFF As UInt16 = 7
     Public Const ETHERNET_CMD_RESET_FAULTS As UInt16 = 8
+    Public Const ETHERNET_CMD_COOLING_SF6_PULSE_LIMIT_OVERRIDE As UInt16 = 9
+    Public Const ETHERNET_CMD_COOLING_SF6_LEAK_LIMIT_OVERRIDE As UInt16 = 10
+    Public Const ETHERNET_CMD_COOLING_RESET_BOTTLE_COUNT As UInt16 = 11
+
 
 
     Dim board_index As Byte = MODBUS_COMMANDS.MODBUS_WR_HVLAMBDA
@@ -240,8 +244,9 @@
 
 
             If (board_index = MODBUS_COMMANDS.MODBUS_WR_COOLING) Then
-                ButtonSF6Close.Visible = True
-                ButtonSF6Open.Visible = True
+                ButtonSF6PulseLimitOverride.Visible = True
+                ButtonSF6LeakLimitOverride.Visible = True
+                ButtonSF6BottleReset.Visible = True
                 LabelCoolingCabinetTemp.Visible = True
                 LabelCoolingCirculatorFlow.Visible = True
                 LabelCoolingCoolantTemp.Visible = True
@@ -249,8 +254,9 @@
                 LabelCoolingMagnetronFlow.Visible = True
                 LabelCoolingSF6Pressure.Visible = True
             Else
-                ButtonSF6Close.Visible = False
-                ButtonSF6Open.Visible = False
+                ButtonSF6PulseLimitOverride.Visible = False
+                ButtonSF6LeakLimitOverride.Visible = False
+                ButtonSF6BottleReset.Visible = False
                 LabelCoolingCabinetTemp.Visible = False
                 LabelCoolingCirculatorFlow.Visible = False
                 LabelCoolingCoolantTemp.Visible = False
@@ -259,9 +265,9 @@
                 LabelCoolingSF6Pressure.Visible = False
             End If
 
-            LabelCoolingCabinetTemp.Text = "Cabinet Temperature = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(10) / 1000
+            LabelCoolingCabinetTemp.Text = "Cabinet Temperature = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(10) / 100 - 273
             LabelCoolingCirculatorFlow.Text = "Circulator Flow = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(3) / 100
-            LabelCoolingCoolantTemp.Text = "Coolant Temperature = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(8) / 1000
+            LabelCoolingCoolantTemp.Text = "Coolant Temperature = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(8) / 100 - 273
             LabelCoolingLinacFlow.Text = "Linac Flow = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(0) / 100
             LabelCoolingMagnetronFlow.Text = "Magnetron Flow = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(1) / 1000
             LabelCoolingSF6Pressure.Text = "SF6 Pressure = " & ServerSettings.ETMEthernetTXDataStructure(MODBUS_COMMANDS.MODBUS_WR_COOLING).custom_data(9) / 100
@@ -274,7 +280,7 @@
 
     End Sub
 
-   
+
     Private Sub frmMain_FormClosed(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
         Try
             TimerUpdate.Enabled = False
@@ -307,7 +313,7 @@
             MsgBox("You must enter valid Integer data")
 
         End Try
-       
+
     End Sub
 
     Private Sub ButtonSetLambdaLow_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSetLambdaLow.Click
@@ -387,17 +393,25 @@
         End Try
     End Sub
 
-    Private Sub ButtonSF6Open_Click(sender As System.Object, e As EventArgs) Handles ButtonSF6Open.Click
-        'Need to define the command index, and also modify the CAN board to respond to it. 
-        'ServerSettings.command_index = ETHERNET_CMD_COOLING_SF6_OPEN
-        'ServerSettings.command_data = 0
-        'command_count = command_count + 1
-        'ServerSettings.command_ready = command_count
+    Private Sub ButtonSF6Open_Click(sender As System.Object, e As EventArgs) Handles ButtonSF6LeakLimitOverride.Click
+        ServerSettings.command_index = ETHERNET_CMD_COOLING_SF6_LEAK_LIMIT_OVERRIDE
+        ServerSettings.command_data = 0
+        command_count = command_count + 1
+        ServerSettings.command_ready = command_count
     End Sub
 
-    Private Sub ButtonSF6Close_Click(sender As System.Object, e As EventArgs) Handles ButtonSF6Close.Click
-
+    Private Sub ButtonSF6Close_Click(sender As System.Object, e As EventArgs) Handles ButtonSF6PulseLimitOverride.Click
+        ServerSettings.command_index = ETHERNET_CMD_COOLING_SF6_PULSE_LIMIT_OVERRIDE
+        ServerSettings.command_data = 0
+        command_count = command_count + 1
+        ServerSettings.command_ready = command_count
     End Sub
 
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButtonSF6BottleReset.Click
+        ServerSettings.command_index = ETHERNET_CMD_COOLING_RESET_BOTTLE_COUNT
+        ServerSettings.command_data = 0
+        command_count = command_count + 1
+        ServerSettings.command_ready = command_count
+    End Sub
 End Class

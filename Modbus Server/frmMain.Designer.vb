@@ -31,8 +31,8 @@ Partial Class frmMain
         Me.LabelCoolingCirculatorFlow = New System.Windows.Forms.Label()
         Me.LabelCoolingLinacFlow = New System.Windows.Forms.Label()
         Me.LabelCoolingMagnetronFlow = New System.Windows.Forms.Label()
-        Me.ButtonSF6Close = New System.Windows.Forms.Button()
-        Me.ButtonSF6Open = New System.Windows.Forms.Button()
+        Me.ButtonSF6PulseLimitOverride = New System.Windows.Forms.Button()
+        Me.ButtonSF6LeakLimitOverride = New System.Windows.Forms.Button()
         Me.LabelHtrMagMagVolSetPointRback = New System.Windows.Forms.Label()
         Me.ButtonResetAllFaults = New System.Windows.Forms.Button()
         Me.ButtonHtrMagOn = New System.Windows.Forms.Button()
@@ -138,6 +138,7 @@ Partial Class frmMain
         Me.LabelHVSetHigh = New System.Windows.Forms.Label()
         Me.cboIndex = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.ButtonSF6BottleReset = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -147,14 +148,15 @@ Partial Class frmMain
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.ButtonSF6BottleReset)
         Me.GroupBox1.Controls.Add(Me.LabelCoolingCabinetTemp)
         Me.GroupBox1.Controls.Add(Me.LabelCoolingSF6Pressure)
         Me.GroupBox1.Controls.Add(Me.LabelCoolingCoolantTemp)
         Me.GroupBox1.Controls.Add(Me.LabelCoolingCirculatorFlow)
         Me.GroupBox1.Controls.Add(Me.LabelCoolingLinacFlow)
         Me.GroupBox1.Controls.Add(Me.LabelCoolingMagnetronFlow)
-        Me.GroupBox1.Controls.Add(Me.ButtonSF6Close)
-        Me.GroupBox1.Controls.Add(Me.ButtonSF6Open)
+        Me.GroupBox1.Controls.Add(Me.ButtonSF6PulseLimitOverride)
+        Me.GroupBox1.Controls.Add(Me.ButtonSF6LeakLimitOverride)
         Me.GroupBox1.Controls.Add(Me.LabelHtrMagMagVolSetPointRback)
         Me.GroupBox1.Controls.Add(Me.ButtonResetAllFaults)
         Me.GroupBox1.Controls.Add(Me.ButtonHtrMagOn)
@@ -328,23 +330,24 @@ Partial Class frmMain
         Me.LabelCoolingMagnetronFlow.TabIndex = 224
         Me.LabelCoolingMagnetronFlow.Text = "LabelCoolingMagnetronFlow"
         '
-        'ButtonSF6Close
+        'ButtonSF6PulseLimitOverride
         '
-        Me.ButtonSF6Close.Location = New System.Drawing.Point(539, 375)
-        Me.ButtonSF6Close.Name = "ButtonSF6Close"
-        Me.ButtonSF6Close.Size = New System.Drawing.Size(120, 23)
-        Me.ButtonSF6Close.TabIndex = 223
-        Me.ButtonSF6Close.Text = "SF6 Solenoid Close"
-        Me.ButtonSF6Close.UseVisualStyleBackColor = True
+        Me.ButtonSF6PulseLimitOverride.Location = New System.Drawing.Point(539, 375)
+        Me.ButtonSF6PulseLimitOverride.Name = "ButtonSF6PulseLimitOverride"
+        Me.ButtonSF6PulseLimitOverride.Size = New System.Drawing.Size(147, 23)
+        Me.ButtonSF6PulseLimitOverride.TabIndex = 223
+        Me.ButtonSF6PulseLimitOverride.Text = "SF6 Pulse Limit Override"
+        Me.ButtonSF6PulseLimitOverride.UseMnemonic = False
+        Me.ButtonSF6PulseLimitOverride.UseVisualStyleBackColor = True
         '
-        'ButtonSF6Open
+        'ButtonSF6LeakLimitOverride
         '
-        Me.ButtonSF6Open.Location = New System.Drawing.Point(539, 348)
-        Me.ButtonSF6Open.Name = "ButtonSF6Open"
-        Me.ButtonSF6Open.Size = New System.Drawing.Size(120, 23)
-        Me.ButtonSF6Open.TabIndex = 222
-        Me.ButtonSF6Open.Text = "SF6 Solenoid Open"
-        Me.ButtonSF6Open.UseVisualStyleBackColor = True
+        Me.ButtonSF6LeakLimitOverride.Location = New System.Drawing.Point(539, 348)
+        Me.ButtonSF6LeakLimitOverride.Name = "ButtonSF6LeakLimitOverride"
+        Me.ButtonSF6LeakLimitOverride.Size = New System.Drawing.Size(147, 23)
+        Me.ButtonSF6LeakLimitOverride.TabIndex = 222
+        Me.ButtonSF6LeakLimitOverride.Text = "SF6 Low Pressure Override"
+        Me.ButtonSF6LeakLimitOverride.UseVisualStyleBackColor = True
         '
         'LabelHtrMagMagVolSetPointRback
         '
@@ -1452,6 +1455,15 @@ Partial Class frmMain
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Choose a board:"
         '
+        'ButtonSF6BottleReset
+        '
+        Me.ButtonSF6BottleReset.Location = New System.Drawing.Point(539, 322)
+        Me.ButtonSF6BottleReset.Name = "ButtonSF6BottleReset"
+        Me.ButtonSF6BottleReset.Size = New System.Drawing.Size(147, 23)
+        Me.ButtonSF6BottleReset.TabIndex = 230
+        Me.ButtonSF6BottleReset.Text = "Reset SF6 Bottle Count"
+        Me.ButtonSF6BottleReset.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1575,12 +1587,13 @@ Partial Class frmMain
     Friend WithEvents LabelHtrMagMagSetPointRback As System.Windows.Forms.Label
     Friend WithEvents LabelHtrMagHtrVolSetPointRback As System.Windows.Forms.Label
     Friend WithEvents LabelHtrMagHtrSetPointRback As System.Windows.Forms.Label
-    Friend WithEvents ButtonSF6Open As System.Windows.Forms.Button
-    Friend WithEvents ButtonSF6Close As System.Windows.Forms.Button
+    Friend WithEvents ButtonSF6LeakLimitOverride As System.Windows.Forms.Button
+    Friend WithEvents ButtonSF6PulseLimitOverride As System.Windows.Forms.Button
     Friend WithEvents LabelCoolingMagnetronFlow As System.Windows.Forms.Label
     Friend WithEvents LabelCoolingLinacFlow As System.Windows.Forms.Label
     Friend WithEvents LabelCoolingCoolantTemp As System.Windows.Forms.Label
     Friend WithEvents LabelCoolingCirculatorFlow As System.Windows.Forms.Label
     Friend WithEvents LabelCoolingSF6Pressure As System.Windows.Forms.Label
     Friend WithEvents LabelCoolingCabinetTemp As System.Windows.Forms.Label
+    Friend WithEvents ButtonSF6BottleReset As System.Windows.Forms.Button
 End Class
